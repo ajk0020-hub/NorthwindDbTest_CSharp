@@ -23,7 +23,7 @@
                                 <div>
                                     <div class="input-group">
                                         <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" placeholder="Search by product name..."></asp:TextBox>
-                                        <asp:LinkButton ID="btnSearch" runat="server" CssClass="btn btn-secondary">
+                                        <asp:LinkButton ID="btnSearch" runat="server" CssClass="btn btn-secondary" OnClick="btnSearch_Clicked">
                                             <i class="bi bi-search"></i>
                                         </asp:LinkButton>
                                     </div>

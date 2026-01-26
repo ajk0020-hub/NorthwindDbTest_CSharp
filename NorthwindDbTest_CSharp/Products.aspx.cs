@@ -88,5 +88,34 @@ namespace NorthwindDbTest_CSharp
                 LoadProducts();
             }
         }
+
+        protected void btnSearch_Clicked(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(txtSearch.Text);
+            using (ProductsRepository productRepo = new ProductsRepository())
+            {
+                ProductViewModelService productViewModelService = new ProductViewModelService();
+                IEnumerable<Product> products;
+                if (chkAvailableOnly.Checked)
+                {
+                    products = productRepo.GetByName($"{txtSearch.Text}&discontinued=false");
+                }
+                else
+                {
+                    products = productRepo.GetByName(txtSearch.Text);
+                }
+
+
+                if (products != null)
+                {
+                    gvProducts.DataSource = productViewModelService.CreateViewModel(products).OrderBy(x => x.Name);
+                    gvProducts.DataBind();
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine("No available products found.");
+                }
+            }
+        }
     }
 }

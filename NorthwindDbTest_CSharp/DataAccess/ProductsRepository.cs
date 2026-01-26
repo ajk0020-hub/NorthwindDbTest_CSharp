@@ -13,5 +13,10 @@ namespace NorthwindDbTest_CSharp.DataAccess
         {
             return GetDataFromEndpoint<IEnumerable<Product>>($"{Endpoint}?discontinued=false");
         }
+
+        public IEnumerable<Product> GetByName(string name)
+        {
+            return GetDataFromEndpoint<IEnumerable<Product>>($"{Endpoint}?name={name}");
+        }
     }
 }
