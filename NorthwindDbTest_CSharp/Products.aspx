@@ -18,7 +18,7 @@
                             </div>
                             <div class="d-flex flex-wrap justify-content-end" style="grid-column-gap: 1rem;">
                                 <div class="form-check mr-3 align-self-center">
-                                    <asp:CheckBox ID="chkAvailableOnly" runat="server" Checked="false" Text="Show only available products" />
+                                    <asp:CheckBox ID="chkAvailableOnly" runat="server" Checked="false" Text="Show only available products" AutoPostBack="true" OnCheckedChanged="showAvailableOnly_CheckedChanged"/>
                                 </div>
                                 <div>
                                     <div class="input-group">

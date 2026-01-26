@@ -62,5 +62,17 @@ namespace NorthwindDbTest_CSharp
 
             lblRecordCount.Text = $"Showing 1 to {gv.Rows.Count} of {gv.Rows.Count} entries";
         }
+
+        protected void showAvailableOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAvailableOnly.Checked)
+            {
+                System.Diagnostics.Debug.WriteLine("Checkbox checked!");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("Checkbox unchecked!");
+            }
+        }
     }
 }
