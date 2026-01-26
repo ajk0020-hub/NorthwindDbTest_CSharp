@@ -67,11 +67,25 @@ namespace NorthwindDbTest_CSharp
         {
             if (chkAvailableOnly.Checked)
             {
-                System.Diagnostics.Debug.WriteLine("Checkbox checked!");
+                using (ProductsRepository productRepo = new ProductsRepository())
+                {
+                    ProductViewModelService productViewModelService = new ProductViewModelService();
+                    IEnumerable<Product> products = productRepo.GetAvailable();
+
+                    if (products != null)
+                    {
+                        gvProducts.DataSource = productViewModelService.CreateViewModel(products).OrderBy(x => x.Name);
+                        gvProducts.DataBind();
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine("No available products found.");
+                    }
+                }
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine("Checkbox unchecked!");
+                LoadProducts();
             }
         }
     }
