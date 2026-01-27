@@ -34,6 +34,7 @@
                 <asp:BoundField DataField="orderDate" HeaderText="Date Ordered" />
                 <asp:BoundField DataField="shipDate" HeaderText="Date Shipped" />
                 <asp:BoundField DataField="shipAddress" HeaderText="Address" />
+                <asp:BoundField DataField="quantity" HeaderText="Amount Shipped" />
             </Columns>
         </asp:GridView>
     </div>

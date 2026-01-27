@@ -63,9 +63,14 @@ namespace NorthwindDbTest_CSharp
 
                         using (OrdersRepository orderRepo = new OrdersRepository())
                         {
+                            OrderViewModelService orderViewModelService = new OrderViewModelService();
                             IEnumerable<Order> orders = orderRepo.GetByProductID(product.Id);
-                            gvOrders.DataSource = orders;
-                            gvOrders.DataBind();
+
+                            if (orders != null)
+                            {
+                                gvOrders.DataSource = orderViewModelService.CreateViewModel(orders).OrderBy(o => o.orderDate);
+                                gvOrders.DataBind();
+                            }
                         }
                     }
                 }
