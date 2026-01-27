@@ -42,7 +42,9 @@
                                 OnPreRender="gvProducts_PreRender" 
                                 OnDataBound="gvProducts_DataBound">
                                 <Columns>
-                                    <asp:BoundField DataField="Name" HeaderText="Name" />
+                                    <asp:HyperLinkField DataTextField="Name" HeaderText="Name" 
+                                        DataNavigateUrlFields="name" 
+                                        DataNavigateUrlFormatString="Details.aspx?name={0}" />
                                     <asp:BoundField DataField="QuantityPerUnit" HeaderText="Qty Per Unit" />
                                     <asp:TemplateField HeaderText="Unit Price">
                                         <ItemTemplate>
