@@ -10,7 +10,7 @@ namespace NorthwindDbTest_CSharp.Models
         public int employeeId { get; set; }
         public DateTime orderDate { get; set; }
         public DateTime requiredDate { get; set; }
-        public string shipDate { get; set; }
+        public string shippedDate { get; set; }
         public int shipVia { get; set; }
         public decimal freight { get; set; }
         public String shipName { get; set; }

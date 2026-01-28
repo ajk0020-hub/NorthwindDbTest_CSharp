@@ -11,10 +11,14 @@ namespace NorthwindDbTest_CSharp.DataAccess
         /// </summary>
         public override string Endpoint { get => NorthwindApiEndpoints.Orders; }
 
-        public IEnumerable<Order> GetByProductID(int id)
+        public IEnumerable<Order> GetByProductID(int id) //Each order that is returned will contain one entry in the details list which contains the product being searched for
         {
             IEnumerable<Order> orders = GetAll();
-            orders = orders.Where(order => order.details.First().productId == id);
+            foreach(Order order in orders)
+            {
+                order.details = order.details.Where(detail => detail.productId == id).ToList();
+            }
+            orders = orders.Where(order => order.details.Count == 1);
             return orders;
         }
     }

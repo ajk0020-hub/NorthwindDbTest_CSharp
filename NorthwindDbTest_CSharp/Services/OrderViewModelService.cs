@@ -25,9 +25,9 @@ namespace NorthwindDbTest_CSharp.Services
             if (source == null) { throw new ArgumentNullException(nameof(source)); }
 
             string sd;
-            if(source.shipDate != null)
+            if(source.shippedDate != "NULL")
             {
-                sd = source.shipDate.Substring(0, 10);
+                sd = source.shippedDate.Substring(0, 10);
             }
             else
             {
@@ -49,7 +49,7 @@ namespace NorthwindDbTest_CSharp.Services
                 id = source.id,
                 shipName = source.shipName,
                 orderDate = source.orderDate.ToString("yyyy-MM-dd"),
-                shipDate = sd,
+                shippedDate = sd,
                 shipAddress = sa,
                 quantity = source.details.First().quantity
             };

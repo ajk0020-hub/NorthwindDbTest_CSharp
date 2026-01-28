@@ -32,7 +32,7 @@
                 <asp:BoundField DataField="id" HeaderText="Order ID" />
                 <asp:BoundField DataField="shipName" HeaderText="Customer Name" />
                 <asp:BoundField DataField="orderDate" HeaderText="Date Ordered" />
-                <asp:BoundField DataField="shipDate" HeaderText="Date Shipped" />
+                <asp:BoundField DataField="shippedDate" HeaderText="Date Shipped" />
                 <asp:BoundField DataField="shipAddress" HeaderText="Address" />
                 <asp:BoundField DataField="quantity" HeaderText="Amount Shipped" />
             </Columns>

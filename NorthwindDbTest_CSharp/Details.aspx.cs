@@ -37,7 +37,7 @@ namespace NorthwindDbTest_CSharp
                             new DataColumn("reorderLevel"),
                             new DataColumn("discontinued"),
                         });
-                        Product product = products.First();
+                        Product product = products.First();//Only 1 product expected
                         String supplierName;
                         if (product.Supplier == null)
                         {
