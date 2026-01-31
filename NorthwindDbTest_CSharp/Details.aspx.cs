@@ -41,23 +41,45 @@ namespace NorthwindDbTest_CSharp
                         String supplierName;
                         if (product.Supplier == null)
                         {
-                            supplierName = "N/A";
+                            using(SupplierRepository supplierRepo = new SupplierRepository())
+                            {
+                                Supplier supplier = supplierRepo.GetById(product.SupplierId);
+                                if (supplier != null)
+                                {
+                                    supplierName = supplier.CompanyName;
+                                }
+                                else
+                                {
+                                    supplierName = "N/A";
+                                }
+                            }
                         }
                         else
                         {
                             supplierName = product.Supplier.CompanyName;
                         }
 
-                        String catagoryName;
+                        String categoryName;
                         if (product.Category == null)
                         {
-                            catagoryName = "N/A";
+                            using (CategoryRepository categoryRepo = new CategoryRepository())
+                            {
+                                Category category = categoryRepo.GetById(product.CategoryId);
+                                if (category != null)
+                                {
+                                    categoryName = category.Name;
+                                }
+                                else
+                                {
+                                    categoryName = "N/A";
+                                }
+                            }
                         }
                         else
                         {
-                            catagoryName = product.Category.Name;
+                            categoryName = product.Category.Name;
                         }
-                        dt.Rows.Add(product.Name, product.Id, supplierName, catagoryName, product.QuantityPerUnit, product.UnitPrice, product.UnitsInStock, product.UnitsOnOrder, product.ReorderLevel, product.Discontinued);
+                        dt.Rows.Add(product.Name, product.Id, supplierName, categoryName, product.QuantityPerUnit, product.UnitPrice, product.UnitsInStock, product.UnitsOnOrder, product.ReorderLevel, product.Discontinued);
                         gvProduct.DataSource = dt;
                         gvProduct.DataBind();
 

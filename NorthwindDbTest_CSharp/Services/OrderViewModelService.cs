@@ -14,12 +14,6 @@ namespace NorthwindDbTest_CSharp.Services
 
         }
 
-        /// <summary>
-        /// Creates a <see cref="ProductViewModel"/> from a provided <see cref="Product"/> model.
-        /// </summary>
-        /// <param name="source">The <see cref="Product"/> model.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
         public OrderViewModel CreateViewModel(Order source)
         {
             if (source == null) { throw new ArgumentNullException(nameof(source)); }

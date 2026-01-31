@@ -130,10 +130,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="DataAccess\BaseRepository.cs" />
+    <Compile Include="DataAccess\CategoryRepository.cs" />
     <Compile Include="DataAccess\OrdersRepository.cs" />
     <Compile Include="DataAccess\IRepository.cs" />
     <Compile Include="DataAccess\NorthwindApiEndpoints.cs" />
     <Compile Include="DataAccess\ProductsRepository.cs" />
+    <Compile Include="DataAccess\SupplierRepository.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
